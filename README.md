@@ -3,7 +3,7 @@
 </p>
 # 🚀 GeoCargo: Global Logistics Pilot - Game Design Document
 
-**LIVE WEBSITE URL:** [Buraya GitHub Pages Linkinizi Yapıştıracaksınız]
+**LIVE WEBSITE URL:** https://gmt-458-web-gis.github.io/geogame-yusragundogdu/
 
 This document outlines the fundamental design and technical architecture for the **GeoCargo** project, a web-based simulation game that blends logistics planning with GIS principles.
 
