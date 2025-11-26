@@ -1,0 +1,331 @@
+body {
+    margin: 0;
+    font-family: 'Consolas', monospace; /* Fütüristik font */
+    background-color: #000;
+    color: white;
+}
+
+/* -------------------- VİDEO ARKA PLAN -------------------- */
+#background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%; 
+    min-height: 100%; 
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 0; 
+}
+
+/* -------------------- ANA MENÜ & KUTU STİLLERİ -------------------- */
+#main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    /* GIF/Video arka planı #background-video etiketi yönetecek */
+}
+
+#menu-content {
+    position: relative;
+    z-index: 10;
+    
+    /* TEMA DÜZELTME: Koyu Lacivert Arkaplan */
+    background: rgba(10, 17, 74, 0.95); 
+    
+    /* Dış Görünüm */
+    padding: 30px 40px; 
+    border-radius: 20px; 
+    
+    /* LED Çerçeve: Parlak Sarı/Krem Rengi */
+    box-shadow: 0 0 10px #FFE773, 
+                0 0 20px #FFE773; 
+    text-align: center;
+}
+
+/* -------------------- LOGO STİLİ (KUTU İÇİNDE) -------------------- */
+#geocargo-logo {
+    position: relative; /* Kutunun içinde normal akışta durur */
+    
+    /* BÜYÜKLÜK DÜZELTMESİ: İstenen büyük boyut */
+    width: 170px; 
+    height: 170px;
+    
+    border-radius: 50%; 
+    object-fit: cover; 
+    
+    /* KUTU İÇİNDE ORTALAMA: */
+    margin: 0 auto 20px auto; 
+    display: block; 
+    
+    /* Sarı LED Parlama */
+    box-shadow: 0 0 15px rgba(255, 231, 115, 0.8); 
+}
+
+/* -------------------- KONTROL AYARLARI -------------------- */
+#settings-area {
+    margin-top: 0; /* Logo taşıma sonrası boşluk düzeltmesi */
+}
+
+.setting-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Seçenek Kutuları ve Label Stili */
+#settings-area label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff; 
+    text-shadow: 0 0 3px #FFE773; 
+}
+
+#settings-area select {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    /* Kenarlık: Parlak Sarı */
+    border: 1px solid #FFE773; 
+    background-color: #111; 
+    color: #FFE773; 
+    transition: box-shadow 0.3s;
+}
+
+/* HOVER (Üzerine Gelme) ve FOCUS (Tıklama/Odaklanma) Stili */
+#settings-area select:hover,
+#settings-area select:focus {
+    border: 1px solid #fff; 
+    /* Parlak Sarı/Krem Parlama */
+    box-shadow: 0 0 10px rgba(255, 231, 115, 0.7), 
+                0 0 20px rgba(255, 231, 115, 0.2); 
+    outline: none; 
+}
+
+/* START Butonu */
+#start-game-button {
+    padding: 15px 40px;
+    margin-top: 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #FFE773; /* Buton Rengi */
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #FFE773; 
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#start-game-button:hover {
+    background-color: #fff;
+    box-shadow: 0 0 20px #fff;
+}
+
+
+/* -------------------- OYUN İÇİ DÜZEN -------------------- */
+#game-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    display: none; 
+}
+
+#map-container {
+    flex-grow: 1;
+}
+
+#dashboard {
+    width: 300px;
+    background-color: #000;
+    padding: 15px;
+    border-left: 2px solid #FFE773; /* Sarı ayırıcı çizgi */
+    box-shadow: 0 0 10px rgba(255, 231, 115, 0.4); 
+    flex-shrink: 0;
+    color: #fff;
+}
+
+#dashboard h2 {
+    color: #FFE773; /* Başlık sarı olsun */
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 231, 115, 0.5);
+    padding-bottom: 8px;
+    text-shadow: 0 0 2px #FFE773;
+}
+/* HARİTAYI KOYU TEMA YAPMA (Kritik Kod) */
+/* Bu kod, beyaz haritayı ters çevirip koyu lacivert/siyah tonlara dönüştürür */
+
+#dashboard {
+    width: 300px; /* Genişlik */
+    
+    /* ARKA PLAN: Yarı saydam siyah (Video hafifçe belli belirsiz görünebilir veya tam siyah yapabilirsiniz) */
+    background-color: rgba(0, 0, 0, 0.9); 
+    
+    padding: 20px;
+    
+    /* SARI LED KENARLIK (Sadece solda) */
+    border-left: 3px solid #FFE773; 
+    
+    /* Kutu Gölgelendirmesi */
+    box-shadow: -5px 0 15px rgba(255, 231, 115, 0.2);
+    
+    flex-shrink: 0;
+    color: #fff; /* Yazı rengi beyaz */
+    font-family: 'Consolas', monospace;
+    
+    /* İçeriklerin üst üste binmemesi için */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 10; /* Haritanın ve videonun üstünde */
+}
+
+/* Dashboard Başlıkları */
+#dashboard h2 {
+    color: #FFE773; /* Sarı Başlık */
+    margin-top: 0;
+    border-bottom: 1px solid #FFE773;
+    padding-bottom: 10px;
+    text-shadow: 0 0 5px #FFE773;
+    text-align: center;
+}
+
+/* Dashboard Metinleri (Hız, Yakıt vb.) */
+#dashboard p {
+    font-size: 1.1em;
+    margin: 5px 0;
+    background: rgba(255, 255, 255, 0.1); /* Hafif kutucuk */
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 3px solid #4454B4; /* Mavi vurgu */
+}
+/* -------------------- ÖZEL MODAL (UYARI PENCERESİ) -------------------- */
+#custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Arkayı karart */
+    z-index: 2000; /* Her şeyin en üstünde */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-content {
+    /* Tema: Koyu Lacivert Arkaplan */
+    background: rgba(10, 17, 74, 0.95); 
+    padding: 40px 60px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    
+    /* Tema: Sarı LED Çerçeve */
+    border: 2px solid #FFE773;
+    box-shadow: 0 0 30px rgba(255, 231, 115, 0.6);
+    animation: popIn 0.3s ease-out;
+}
+
+#modal-title {
+    color: #FFE773;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #FFE773;
+    text-transform: uppercase;
+}
+
+#modal-message {
+    color: #fff;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+#modal-button {
+    padding: 15px 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #FFE773;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #FFE773;
+    transition: transform 0.2s;
+}
+
+#modal-button:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+}
+
+/* Pencerenin açılış animasyonu */
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+/* -------------------- ZAFER EFEKTİ (COIN GIF) -------------------- */
+#victory-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    /* Modal (z-index: 2000) arkasında, Oyunun (z-index: 100) önünde */
+    z-index: 1500; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Arkadaki haritayı biraz karart */
+    pointer-events: none; /* Tıklamaları engellemesin */
+}
+
+#victory-effect img {
+    /* GIF'in boyutunu ve konumunu ayarlayın */
+    width: 80%; /* Ekranın %80'ini kaplasın */
+    height: auto;
+    object-fit: contain;
+    animation: popIn 0.5s ease-out; /* Hafif bir giriş animasyonu */
+}
+
+
+/* -------------------- GERİ SAYIM EKRANI -------------------- */
+#countdown-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95); /* Neredeyse tam siyah */
+    z-index: 3000; /* En üstte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#countdown-text {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #FFE773; /* Sarı */
+    text-shadow: 0 0 20px #FFE773, 0 0 40px #FFD700; /* Güçlü LED Parlama */
+    font-family: 'Consolas', monospace;
+    animation: pulse-count 0.8s infinite;
+}
+
+/* Kalp atışı gibi efekt */
+@keyframes pulse-count {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}

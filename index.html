@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoCargo</title>
+    
+    <link rel="stylesheet" href="styles/style.css"> 
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css">
+    
+</head>
+
+<body>
+    <video id="background-video" autoplay muted loop playsinline>
+        <source src="assets/videos/arkaplan.mp4" type="video/mp4">
+        Tarayıcınız video etiketini desteklemiyor.
+    </video>
+
+    <audio id="engine-sound" src="assets/sounds/engine.mp3" loop preload="auto"></audio>
+
+    <div id="custom-modal" style="display: none;">
+        <div id="modal-content">
+            <h1 id="modal-title">TITLE</h1>
+            <p id="modal-message">Message goes here...</p>
+            <button id="modal-button">ACTION</button>
+        </div>
+    </div>
+
+    <div id="main-menu">
+        <div id="menu-content">
+            <div id="settings-area">
+                <img id="geocargo-logo" src="assets/images/geocargo_logo.png" alt="GeoCargo Logo">
+
+                <div class="setting-group">
+                    <label for="player-count">Player Count:</label>
+                    <select id="player-count">
+                        <option value="1">1 Player</option>
+                        <option value="2">2 Players</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label for="control-method">Control Method:</label>
+                    <select id="control-method">
+                        <option value="mouse">Strategic Manager (Mouse)</option>
+                        <option value="wasd">Arcade Pilot (WASD)</option>
+                    </select>
+                </div>
+
+                <button id="start-game-button">START</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-container" style="display: none;">
+        <div id="map-container">
+            <div id="map" style="width: 100%; height: 100%;"></div> 
+        </div>
+
+        <div id="dashboard">
+            <h2>Mission Control</h2>
+            
+            <p id="mission-info" style="color: #FFE773; font-weight: bold;">Initializing...</p>
+            
+            <p id="status-lives" style="color: #ff4444;">Lives: ❤️❤️❤️</p>
+            <p id="status-timer">Time: --</p>
+
+            <p id="status-score" style="display: block;">Score: 0</p>
+
+            <div id="multiplayer-scores" style="display: none; margin-top: 10px; border-top: 1px solid #555; padding-top: 5px;">
+                <p id="score-p1" style="color: #0066FF;">P1 (Blue): 0</p>
+                <p id="score-p2" style="color: #FF3300;">P2 (Red): 0</p>
+            </div>
+
+            <p id="status-fuel">Fuel: --</p>
+            <p id="status-speed" style="font-size: 0.9em; color: #aaa;">Mode: --</p>
+        </div>
+    </div>
+    <audio id="coin-sound" src="assets/sounds/coin.mp3" loop preload="auto"></audio>
+
+    <div id="victory-effect" style="display: none;">
+        <img src="assets/images/coin.gif" alt="Victory Coins">
+    </div>
+<div id="countdown-overlay" style="display: none;">
+        <div id="countdown-text">ARE YOU READY?</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
+    
+    <script src="scripts/main.js"></script>
+
+</body>
+</html>
