@@ -1,4 +1,6 @@
-![geocargo_logo](https://github.com/user-attachments/assets/392d4794-9fdc-4797-8ce2-5a7a89b1d407)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/392d4794-9fdc-4797-8ce2-5a7a89b1d407" width="200">
+</p>
 # 🚀 GeoCargo: Global Logistics Pilot - Game Design Document
 
 **LIVE WEBSITE URL:** [Buraya GitHub Pages Linkinizi Yapıştıracaksınız]
